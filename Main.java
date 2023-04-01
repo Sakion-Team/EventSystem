@@ -15,4 +15,10 @@ public class Main {
     {
         System.out.println("Shutdown.");
     }
+    
+    @EventListener
+    public void shutdown(ShutdownEvent event)
+    {
+        System.out.println("Shutdown..");
+    }
 }
