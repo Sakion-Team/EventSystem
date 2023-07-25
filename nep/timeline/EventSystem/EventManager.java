@@ -87,10 +87,10 @@ public class EventManager
         listeners.forEach(listener -> {
             List<Method> methods = Arrays.asList(listener.getClass().getDeclaredMethods());
             methods.sort((method1, method2) -> {
-                if (!method1.isAccessible())
+                if (!method1.canAccess(listener))
                     method1.setAccessible(true);
 
-                if (!method2.isAccessible())
+                if (!method2.canAccess(listener))
                     method2.setAccessible(true);
 
                 EventPriority priority1 = null;
@@ -109,7 +109,7 @@ public class EventManager
             });
 
             methods.forEach(method -> {
-                if (!method.isAccessible())
+                if (!method.canAccess(listener))
                     method.setAccessible(true);
 
                 if (method.isAnnotationPresent(EventListener.class))
