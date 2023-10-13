@@ -39,7 +39,11 @@ public class EventManager
         try
         {
             MethodHandle handle = EventManager.lookup.unreflect(method);
-            EventList events = method.getDeclaredAnnotation(EventListener.class).event();
+            EventListener annotation = method.getDeclaredAnnotation(EventListener.class);
+            if (annotation == null)
+                return;
+
+            Events events = annotation.event();
 
             if (events != EventList.NONE && (events == event.getEvent() || events == EventList.ALL))
             {
