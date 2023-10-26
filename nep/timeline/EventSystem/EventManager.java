@@ -43,7 +43,7 @@ public class EventManager
             if (annotation == null)
                 return;
 
-            Events events = annotation.event();
+            EventList events = annotation.event();
 
             if (events != EventList.NONE && (events == event.getEvent() || events == EventList.ALL))
             {
