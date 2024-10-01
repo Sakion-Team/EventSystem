@@ -76,9 +76,10 @@ public class EventManager
                     throw new EventException("Incorrect usage! method name:" + method.getName());
                 }
             }
-            catch (InvocationTargetException | IllegalAccessException ignored)
+            catch (InvocationTargetException e)
             {
-
+                System.err.println(listener.getClass().getTypeName() + " | " + method.getName());
+                e.printStackTrace();
             }
             catch (Throwable throwable)
             {
