@@ -6,7 +6,7 @@ public class EventCore
 {
     public static final String name = "EventSystem";
     public static final String developer = "Timeline";
-    public static final String version = "3.2";
+    public static final String version = "3.5";
     private final EventList event;
     private EventType type = EventType.NONE;
     private boolean isCancelled = false;
